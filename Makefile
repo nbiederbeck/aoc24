@@ -6,16 +6,16 @@ out/%.txt: src/%.py in/%.txt | out
 	cat $@
 
 
-in/%.txt: utils.py | int
-	python $<
+in/%.txt: src/utils.py | in
+	python $< $*
 
 
 out:
-	mkdir -p out
+	mkdir -p $@
 
 
 in:
-	mkdir -p int
+	mkdir -p $@
 
 
 clean:
