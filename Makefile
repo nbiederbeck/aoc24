@@ -1,17 +1,12 @@
-all: $(addprefix out/, $(addsuffix .txt, 01))
+all: 01
 
 
-out/%.txt: src/%.py in/%.txt | out
+%: src/%.py in/%.txt
 	python $<
-	cat $@
 
 
 in/%.txt: src/utils.py | in
 	python $< $*
-
-
-out:
-	mkdir -p $@
 
 
 in:
